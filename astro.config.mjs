@@ -5,6 +5,6 @@ export default defineConfig({
   // Ganti dengan username GitHub kamu
   site: 'https://muhammadrezga.github.io', 
   // Ganti dengan nama repository kamu (misal: '/portofolio')
-  base: '/portofolio', 
+  base: '/Portofolio', 
   integrations: [tailwind()],
 });
