@@ -1,0 +1,58 @@
+---
+// Experience Section Component
+---
+
+<section id="experience" class="py-20 px-6 lg:px-24 bg-brand-light relative">
+    <!-- Decorative bg -->
+    <div class="absolute inset-0 bg-tech-grid z-0 pointer-events-none opacity-30"></div>
+    
+    <div class="max-w-3xl mx-auto relative z-10">
+        <h2 class="text-3xl font-bold font-serif text-brand-dark mb-12 text-center">Professional Experience</h2>
+        
+        <!-- Changed border style to dashed to represent data flow -->
+        <div class="relative border-l-2 border-dashed border-gray-300 ml-3 md:ml-6 space-y-12 pb-4">
+            
+            <!-- Experience Item 1 -->
+            <div class="timeline-item relative pl-8 md:pl-12">
+                <!-- Updated Dot Style -->
+                <div class="timeline-dot absolute top-1.5 left-[-9px] w-4 h-4 bg-white border-2 border-brand-teal rounded-full transition-all duration-300"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">IoT Engineer Internship</h3>
+                    <span class="text-xs font-mono text-brand-teal bg-white border border-gray-200 px-2 py-1 rounded">Aug - Dec 2025</span>
+                </div>
+                <p class="text-gray-700 font-semibold">BRMP Agroclimate and Agricultural Hydrology</p>
+                <ul class="list-disc list-outside ml-4 mt-3 space-y-2 text-sm text-gray-600 leading-relaxed">
+                    <li>Developed an end-to-end IoT system for aquaponics automation, featuring real-time water quality monitoring and automated fish feeding control.</li>
+                    <li>Integrated a complex multi-sensor array (Temperature, TDS, pH, Ultrasonic, Turbidity) and engineered a high-precision mechanism for the automatic fish feeder.</li>
+                    <li>Deployed the monitoring system to a Cloud platform, enabling real-time data telemetry and public accessibility via web and mobile interfaces.</li>
+                </ul>
+                <a href="/documents/internship_batch1.pdf" target="_blank" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-brand-teal hover:text-teal-800 transition group">
+                    <i class="fas fa-file-pdf"></i>
+                    <span class="border-b border-transparent group-hover:border-teal-800">View Certifications</span>
+                </a>
+            </div>
+
+            <!-- Experience Item 2 -->
+            <div class="timeline-item relative pl-8 md:pl-12">
+                <div class="timeline-dot absolute top-1.5 left-[-9px] w-4 h-4 bg-white border-2 border-brand-teal rounded-full transition-all duration-300"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">IoT Engineer Internship</h3>
+                    <span class="text-xs font-mono text-brand-teal bg-white border border-gray-200 px-2 py-1 rounded">Jan - Jun 2025</span>
+                </div>
+                <p class="text-gray-700 font-semibold">BRMP Agroclimate and Agricultural Hydrology</p>
+                <ul class="list-disc list-outside ml-4 mt-3 space-y-2 text-sm text-gray-600 leading-relaxed">
+                    <li>Designed and developed an IoT-based monitoring and control system for hydroponic growing media.</li>
+                    <li>The system included temperature, TDS, pH, and ultrasonic sensors, as well as an automatic pump for liquid nutrient distribution.</li>
+                    <li>Deployed the monitoring system on a cloud platform for public and real-time access.</li>
+                </ul>
+                <a href="/documents/internship_batch2.pdf" target="_blank" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-brand-teal hover:text-teal-800 transition group">
+                    <i class="fas fa-file-pdf"></i>
+                    <span class="border-b border-transparent group-hover:border-teal-800">View Certifications</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

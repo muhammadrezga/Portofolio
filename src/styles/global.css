@@ -1,0 +1,90 @@
+/* Global styles migrated from original index.html */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base body styles */
+body {
+    background-color: #F8F9FA;
+    color: #555555;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333333;
+}
+
+/* Tech Background Pattern (Dot Grid) */
+.bg-tech-grid {
+    background-image: radial-gradient(#006D77 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.05;
+}
+
+/* Network Node Pulse Animation */
+@keyframes networkPulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 109, 119, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(0, 109, 119, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 109, 119, 0); }
+}
+
+.network-node-active {
+    animation: networkPulse 2s infinite;
+}
+
+/* Timeline Dot Styling (Node look) */
+.timeline-item:hover .timeline-dot {
+    background-color: #006D77;
+    transform: scale(1.25);
+    box-shadow: 0 0 0 4px white, 0 0 0 6px #006D77;
+}
+
+/* Smooth Lift for Cards */
+.project-card, .cert-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.project-card:hover, .cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #83C5BE;
+}
+
+/* Circuit Corner Accent */
+.tech-corner {
+    position: relative;
+    overflow: hidden;
+}
+.tech-corner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 24px 24px 0;
+    border-color: transparent #F0FDF4 transparent transparent;
+    transition: border-color 0.3s ease;
+}
+.project-card:hover .tech-corner::after {
+    border-color: transparent #006D77 transparent transparent;
+}
+
+/* Glassmorphism Nav */
+.nav-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Optimized Navbar Transition */
+.navbar-transition {
+    transition-property: top, padding, background-color, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* Ensure transitions on children are smooth too */
+.nav-child-transition {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}

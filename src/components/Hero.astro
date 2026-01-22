@@ -1,0 +1,49 @@
+---
+// Hero Section Component
+import profileImage from '../assets/profil.jpeg';
+---
+
+<section id="home" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 lg:px-24 relative overflow-hidden">
+    <!-- Background Pattern Layer -->
+    <div class="absolute inset-0 bg-tech-grid z-0 pointer-events-none"></div>
+    
+    <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+        
+        <!-- Left: Text -->
+        <div class="order-2 lg:order-1 space-y-6">
+            <!-- Tech Tag -->
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                Hi, I'm Rezga. <br>
+                <span class="text-brand-teal font-serif italic">Network & IoT Engineer.</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-lg leading-relaxed text-gray-600">
+                Designing robust connectivity solutions and building smart, embedded systems that bridge the physical and digital worlds.
+            </p>
+            <div class="flex gap-4 pt-4">
+                <a href="#projects" class="bg-brand-teal text-white px-8 py-3 rounded-md font-medium hover:bg-teal-800 transition shadow-lg transform hover:-translate-y-1">
+                    View Projects
+                </a>
+                <a href="#contact" class="border border-gray-300 bg-white text-gray-700 px-8 py-3 rounded-md font-medium hover:bg-gray-50 transition">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <!-- Abstract decorative blob/shape behind -->
+                <div class="absolute inset-0 bg-teal-100 rounded-[2rem] transform rotate-6 scale-105 z-0"></div>
+                <!-- Actual Image Container -->
+                <div class="absolute inset-0 bg-gray-200 rounded-[2rem] overflow-hidden shadow-2xl z-10 border-4 border-white">
+                    <!-- Placeholder for user image -->
+                    <img src={profileImage.src} alt="Profile" class="w-full h-full object-cover">
+                </div>
+                <!-- Decorative Connection Node -->
+                <div class="absolute -bottom-4 -right-4 w-12 h-12 bg-brand-teal rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white z-20 network-node-active">
+                    <i class="fas fa-wifi text-sm"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,73 @@
+---
+// Projects Section Component
+import grafanaImg from '../assets/grafana.jpg';
+import solarImg from '../assets/solar.jpeg';
+import aquaponikImg from '../assets/aquaponik.jpeg';
+---
+
+<section id="projects" class="py-20 px-6 lg:px-24 bg-brand-light relative">
+    <div class="absolute inset-0 bg-tech-grid z-0 pointer-events-none opacity-30"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+        <h2 class="text-3xl font-bold font-serif text-brand-dark mb-12 text-center">Featured Projects</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1 -->
+            <div class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer relative tech-corner">
+                <a href={grafanaImg.src} class="glightbox" data-title="Network Monitoring" data-description="Complete design of network monitoring with Prometheus and Grafana.">
+                    <div class="project-visual h-48 bg-gray-200 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-10 transition duration-300 pointer-events-none"></div>
+                        <img src={grafanaImg.src} alt="Network Monitoring" class="w-full h-full object-cover" />
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Network Monitoring</h3>
+                    <p class="text-gray-600 text-sm mb-4">Complete design of network monitoring with Prometheus and Grafana .</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#Mikrotik</span>
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#Grafana</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer relative tech-corner">
+                <a href={solarImg.src} class="glightbox" data-title="SOLTARINE Project" data-description="Designed and developed a solar-powered power bank with automatic sun-tracking capability.">
+                    <div class="project-visual h-48 bg-gray-200 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-10 transition duration-300 pointer-events-none"></div>
+                        <img src={solarImg.src} alt="SOLTARINE Project" class="w-full h-full object-cover" />
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">SOLTARINE Project</h3>
+                    <p class="text-gray-600 text-sm mb-4">Designed and developed a solar-powered power bank with automatic sun-tracking capability.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#Embedded</span>
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#Electrical</span>
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#ESP32</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer relative tech-corner">
+                <a href={aquaponikImg.src} class="glightbox" data-title="Automatic Fish Feeding and Water Quality Monitoring" data-description="Developed an end-to-end IoT system for aquaponics automation, featuring real-time water quality monitoring and automated fish feeding control.">
+                    <div class="project-visual h-48 bg-gray-200 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-10 transition duration-300 pointer-events-none"></div>
+                        <img src={aquaponikImg.src} alt="Aquaponics Project" class="w-full h-full object-cover" />
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Automatic Fish Feeding and Water Quality Monitoring</h3>
+                    <p class="text-gray-600 text-sm mb-4">Developed an end-to-end IoT system for aquaponics automation, featuring real-time water quality monitoring and automated fish feeding control.</p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#IoT</span>
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#ESP32</span>
+                        <span class="text-xs font-semibold text-brand-teal bg-teal-50 px-2 py-1 rounded font-mono">#Sensors</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

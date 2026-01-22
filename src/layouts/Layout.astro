@@ -1,0 +1,144 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Network & IoT Engineer Portfolio", 
+  description = "Designing robust connectivity solutions and building smart, embedded systems that bridge the physical and digital worlds." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-24">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content={description}>
+    <title>{title}</title>
+    
+    <!-- Google Fonts: Inter (UI/Body), Merriweather (Accents), and JetBrains Mono (Tech/Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,700;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="antialiased relative">
+    <slot />
+    
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        // EmailJS Initialization
+        emailjs.init("wBAJgkmEZP8KIoDmB");
+
+        // Navbar Scroll Logic - Robust Implementation (State-based)
+        const navContainer = document.getElementById('nav-container');
+        const navCenter = document.getElementById('nav-center');
+        
+        let currentState = 'floating';
+
+        function updateNavbarState() {
+            const shouldBeSticky = window.scrollY > 50;
+            
+            if (shouldBeSticky && currentState === 'floating') {
+                currentState = 'sticky';
+                
+                navContainer.classList.remove('top-6', 'px-6', 'lg:px-12', 'pointer-events-none');
+                navContainer.classList.add('top-0', 'px-6', 'py-4', 'nav-glass', 'shadow-md', 'pointer-events-auto', 'bg-white/85');
+                
+                navCenter.classList.remove('nav-glass', 'shadow-lg');
+                navCenter.classList.add('bg-transparent');
+                
+            } else if (!shouldBeSticky && currentState === 'sticky') {
+                currentState = 'floating';
+                
+                navContainer.classList.add('top-6', 'px-6', 'lg:px-12', 'pointer-events-none');
+                navContainer.classList.remove('top-0', 'px-6', 'py-4', 'nav-glass', 'shadow-md', 'pointer-events-auto', 'bg-white/85');
+                
+                navCenter.classList.add('nav-glass', 'shadow-lg');
+                navCenter.classList.remove('bg-transparent');
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbarState);
+        
+        if (window.scrollY > 50) currentState = 'floating';
+        else currentState = 'sticky';
+        
+        updateNavbarState();
+
+        // GLightbox Initialization
+        const lightbox = GLightbox({
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: true
+        });
+
+        // Form Handling: Send Email
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const honeypot = document.getElementById('_honey')?.value;
+                if (honeypot) {
+                    console.log("Bot detected. Spam rejected.");
+                    return;
+                }
+
+                const templateParams = {
+                    name: document.getElementById('name')?.value,
+                    email: document.getElementById('email')?.value,
+                    subject: document.getElementById('subject')?.value,
+                    message: document.getElementById('message')?.value
+                };
+
+                const btn = this.querySelector('button');
+                const originalContent = btn.innerHTML;
+                
+                btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                btn.disabled = true;
+
+                emailjs.init("wBAJgkmEZP8KIoDmB");
+
+                emailjs.send('service_nzvynal', 'template_aj5squ8', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        
+                        btn.innerHTML = 'Sent! <i class="fas fa-check"></i>';
+                        btn.classList.remove('bg-brand-dark');
+                        btn.classList.add('bg-brand-teal');
+
+                        form.reset();
+
+                        setTimeout(() => {
+                            btn.innerHTML = originalContent;
+                            btn.classList.remove('bg-brand-teal');
+                            btn.classList.add('bg-brand-dark');
+                            btn.disabled = false;
+                        }, 3000);
+
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert("Sorry, message failed to send. Please check your connection or contact me directly.");
+                        
+                        btn.innerHTML = originalContent;
+                        btn.disabled = false;
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
